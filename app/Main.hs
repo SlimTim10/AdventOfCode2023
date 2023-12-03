@@ -6,3 +6,4 @@ main :: IO ()
 main = do
   putStrLn "Day 1"
   Day1.part1
+  Day1.part2

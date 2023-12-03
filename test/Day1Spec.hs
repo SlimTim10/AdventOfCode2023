@@ -11,3 +11,15 @@ spec = do
       Day1.extractCalibrationValue "pqr3stu8vwx" `shouldBe` 38
       Day1.extractCalibrationValue "a1b2c3d4e5f" `shouldBe` 15
       Day1.extractCalibrationValue "treb7uchet" `shouldBe` 77
+
+    it "extractCalibrationValueWithWords works" $ do
+      Day1.extractCalibrationValueWithWords "two1nine" `shouldBe` 29
+      Day1.extractCalibrationValueWithWords "eightwothree" `shouldBe` 83
+      Day1.extractCalibrationValueWithWords "abcone2threexyz" `shouldBe` 13
+      Day1.extractCalibrationValueWithWords "xtwone3four" `shouldBe` 24
+      Day1.extractCalibrationValueWithWords "4nineeightseven2" `shouldBe` 42
+      Day1.extractCalibrationValueWithWords "zoneight234" `shouldBe` 14
+      Day1.extractCalibrationValueWithWords "7pqrstsixteen" `shouldBe` 76
+      Day1.extractCalibrationValueWithWords "twone" `shouldBe` 21
+      Day1.extractCalibrationValueWithWords "oneight" `shouldBe` 18
+      Day1.extractCalibrationValueWithWords "seightwoone8qxcfgszninesvfcnxc68" `shouldBe` 88
