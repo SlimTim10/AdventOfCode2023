@@ -2,6 +2,7 @@ module Day2 where
 
 import qualified Data.Text as T
 import qualified Relude.Extra.Map as Map
+import qualified Relude.Extra.Foldable1 as Fold
 
 data Game = Game
   { gameId :: Int
@@ -68,3 +69,18 @@ part1 = do
   let maxColours = fromList [(Red, 12), (Green, 13), (Blue, 14)] :: Map Colour Int
   let validGames = filter (validateGame maxColours) games
   print $ sum . map gameId $ validGames
+
+fewestCubes :: Game -> Map Colour Int
+fewestCubes game = foldr findHighest mempty [Red, Green, Blue]
+  where
+    findHighest :: Colour -> Map Colour Int -> Map Colour Int
+    findHighest c = Map.insert
+      c
+      (Fold.maximum1 (0 :| map (Map.lookupDefault 0 c) (revelations game)))
+
+part2 :: IO ()
+part2 = do
+  t :: Text <- decodeUtf8With lenientDecode <$> readFileBS "input/Day2.txt"
+  let games = map parseGame . lines $ t
+  let powers = map (product . Map.elems) . map fewestCubes $ games
+  print $ sum powers
