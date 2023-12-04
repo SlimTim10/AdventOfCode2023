@@ -5,8 +5,8 @@ import qualified Day2
 
 spec :: Spec
 spec = do
-  describe "Day2" $ do
-    it "parseGame parses games" $ do
+  describe "parseGame" $ do
+    it "parses example games correctly" $ do
       Day2.parseGame "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green" `shouldBe`
         Day2.Game
         { gameId = 1
