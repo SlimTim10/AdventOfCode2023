@@ -32,6 +32,7 @@ library
     exposed-modules:
         Day1
         Day2
+        Day3
     build-depends:
         base ^>=4.16.4.0
       , relude ^>=1.2.0.0
@@ -62,6 +63,7 @@ test-suite AdventOfCode2023-test
     other-modules:
         Day1Spec
         Day2Spec
+        Day3Spec
     build-depends:
         base ^>=4.16.4.0
       , AdventOfCode2023
